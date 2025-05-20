@@ -28,7 +28,7 @@ export function VanishInput() {
 
   };
   return (
-    <div className="">
+    <div className="text-[#fff] bg-[#fff]   w-full">
 
       <PlaceholdersAndVanishInput
         placeholders={placeholders}
@@ -36,6 +36,7 @@ export function VanishInput() {
         setValue={setQuery}
         onChange={handleChange}
         onSubmit={onSubmit}
+        
       />
     </div>
   );

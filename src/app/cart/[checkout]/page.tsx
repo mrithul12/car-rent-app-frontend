@@ -107,13 +107,13 @@ const CheckoutPage = () => {
                                             width={40}
                                             height={40}
                                             className="rounded-[50%]" />
-                                             <p className="font-bold">{i.name}</p>
+                                        <p className="font-bold">{i.name}</p>
                                     </div>
                                     <div className="flex flex-col items-end">
-                                    
-                                            <p className="font-bold">{i.date}</p>
-                                            <p className="text-[#f3aa0c] font-bold text-[1em] flex "> ★ ★ ★ ★ ☆</p>
-                                      
+
+                                        <p className="font-bold">{i.date}</p>
+                                        <p className="text-[#f3aa0c] font-bold text-[1em] flex "> ★ ★ ★ ★ ☆</p>
+
                                     </div>
 
                                 </div>
@@ -126,103 +126,107 @@ const CheckoutPage = () => {
                 </div>
             </div>
             <div className="w-[100%] sm:w-[60%] sm:h-full bg-gray-300 rounded-[5]   text-start   gap-1  text-nowrap">
-                <div className="bg-[#fff] rounded-t-[10] p-5">
-                    <h1>Billing info</h1>
-                    <p>enter your address and details</p>
-                </div>
+              
 
                 <form onSubmit={handleSubmit} className="grid gap-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 p-5 bg-[#fff] rounded-b-[10]">
+                   
+                 
+                   
+      
+                    <div className="grid grid-cols-1 sm:grid-cols-1 gap-1 p-5 bg-[#fff] rounded-[10]">
+                          
                         <div className="grid  gap-1  ">
-                            <label>Name</label>
+                            
+                            <label className="text-[12px] font-bold">Name</label>
                             <input
                                 type="text"
                                 placeholder="Enter Name"
-                                className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 name="fname"
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className="grid gap-1 ">
-                            <label>Address</label>
+                            <label className="text-[12px] font-bold">Address</label>
                             <input
                                 type="text"
                                 placeholder="Enter Address"
-                                className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 name="lname"
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className="grid ">
-                            <label>Email</label>
+                            <label className="text-[12px] font-bold">Email</label>
                             <input
                                 type="email"
                                 placeholder="Enter Mail"
-                                className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 name="email"
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className="grid ">
-                            <label>Mobile</label>
+                            <label className="text-[12px] font-bold">Mobile</label>
                             <input
                                 type="text"
                                 placeholder="Enter Mobile Number"
-                                className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 name="number"
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className="grid">
-                            <label>Upload Licence</label>
+                            <label className="text-[12px] font-bold">Upload Licence</label>
                             <input
                                 type="file"
-                                className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 name="file"
                             />
                         </div>
                     </div>
-                    <div className="bg-[#fff] p-5 rounded-[10]">
+                    <div className="bg-[#fff] p-5 rounded-[10] ">
                         <div>
-                            <h1>Rental Info</h1>
+                          
                             <div className="flex items-center gap-1 mt-1">
-                                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                                <span>Pick-Up</span>
+                                <div className="w-3 h-3 rounded-full bg-green-500 "></div>
+                                <span className="text-[12px] font-bold">Pick-Up</span>
                             </div>
                         </div>
-                        <div className=" grid grid-cols-1 sm:grid-cols-2 gap-1">
+                        <div className=" grid grid-cols-1 sm:grid-cols-1 gap-1 mt-2">
                             <div className="grid">
-                                <label>City/Town name</label>
+                                <label className="text-[12px] font-bold">City/Town name</label>
                                 <input
                                     type="text"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0  placeholder:text-xs"
                                     placeholder="Enter PickUp Location"
                                 />
                             </div>
                             <div className="grid">
-                                <label>Land Mark</label>
+                                <label className="text-[12px] font-bold">Land Mark</label>
                                 <input
                                     type="text"
                                     placeholder="Enter Land Mark"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 />
                             </div>
                             <div className="grid">
-                                <label>Date</label>
+                                <label className="text-[12px] font-bold">Date</label>
                                 <input
                                     type="date"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                  
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0 "
                                 />
                             </div>
                             <div className="grid">
-                                <label>Time</label>
+                                <label className="text-[12px] font-bold">Time</label>
                                 <input
                                     type="time"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs "
                                 />
                             </div>
                         </div>
@@ -230,41 +234,41 @@ const CheckoutPage = () => {
 
                     <div className="bg-[#fff] p-5 rounded-[10]">
                         <div>
-                            <h1>Rental Info</h1>
+                           
                             <div className="flex items-center gap-1 mt-1">
                                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                                <span>Drop-up</span>
+                                <span className="text-[12px] font-bold">Drop-up</span>
                             </div>
                         </div>
-                        <div className=" grid grid-cols-1 sm:grid-cols-2 gap-1">
+                        <div className=" grid grid-cols-1 sm:grid-cols- gap-1 mt-2">
                             <div className="grid">
-                                <label>City/Town name</label>
+                                <label className="text-[12px] font-bold">City/Town name</label>
                                 <input
                                     type="text"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                     placeholder="Enter PickUp Location"
                                 />
                             </div>
                             <div className="grid">
-                                <label>Land Mark</label>
+                                <label className="text-[12px] font-bold">Land Mark</label>
                                 <input
                                     type="text"
                                     placeholder="Enter Land Mark"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 />
                             </div>
                             <div className="grid">
-                                <label>Date</label>
+                                <label className="text-[12px] font-bold">Date</label>
                                 <input
                                     type="date"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0 "
                                 />
                             </div>
                             <div className="grid">
-                                <label>Time</label>
+                                <label className="text-[12px] font-bold">Time</label>
                                 <input
                                     type="time"
-                                    className="bg-gray-300 p-1 rounded-[5] outline-0 "
+                                    className="bg-gray-300 p-2 rounded-[5] outline-0 placeholder:text-xs"
                                 />
                             </div>
                         </div>
@@ -273,7 +277,7 @@ const CheckoutPage = () => {
                     <div className="">
                         <button
                             type="submit"
-                            className="bg-blue-900 text-[#ffff] p-1 w-full  rounded-[5]"
+                            className="bg-blue-900 text-[#ffff] p-2 w-full  rounded-[5]"
                         >
                             Submit
                         </button>

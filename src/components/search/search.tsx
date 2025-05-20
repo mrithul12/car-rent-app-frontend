@@ -20,7 +20,7 @@ const Search = ({getItems}:SearchState) => {
     
   return (
     <div>
-     {searchQuery.length>0 && <h2>Searched Items</h2>} 
+     {searchQuery.length>0 && <h2 className='font-medium px-4'>Searched Items...</h2>} 
       <ProductList getItems={searchQuery} />
     </div>
   )

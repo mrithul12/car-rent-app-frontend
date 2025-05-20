@@ -52,15 +52,15 @@ const Header = () => {
 
 
     return (
-        <div className='grid sm:grid-cols-2 p-3 gap-1 items-center bg-gradient-to-l from-[#1313f6] to-[#b1b1db]  header sticky top-0 z-10'>
-            {/* mobile */}
+        <div className='grid sm:grid-cols-2 p-2 gap-1 items-center bg-gradient-to-l bg-blue-700  header sticky top-0 z-10'>
+          
             <div className='flex justify-between sm:justify-start items-center gap-4 relative  ' >
                 <div>
-                    <h1 className='text-blue-800 font-[800] text-[20px] text-nowrap'>CAR✓RENT</h1>
+                    <h1 className='text-[#fff] font-[800] text-[20px] text-nowrap'>CAR✓RENT</h1>
                 </div>
                 <div className='flex gap-2 items-center'>
-                    <div className='flex border-1 p-1 rounded-2xl '>
-                        <Search className='text-gray-600 ' />
+                    <div className='flex border-1 p-2 rounded-2xl w-full bg-[#fff]'>
+                        <Search className='text-black ' />
 
                         <VanishInput />
                     </div>
