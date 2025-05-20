@@ -1,26 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface LoginState {
-    isActive: boolean
+    isActive: boolean;
 }
 const initialState: LoginState = {
-    isActive: false
-}
+    isActive: false,
+};
 
 export const loginSlice = createSlice({
-    name:"loginPage",
+    name: "loginPage",
     initialState,
-    reducers:{
-        setActive:(state)=>{
-           state.isActive =true;
+    reducers: {
+        setActive: (state) => {
+            state.isActive = true;
         },
-        setInActive:(state)=>{
-            state.isActive=false;
-        }
-    }
-    
+        setInActive: (state) => {
+            state.isActive = false;
+        },
+    },
+});
 
-})
-
-export const {setActive,setInActive} = loginSlice.actions
-export const {reducer:loginReducer} = loginSlice
+export const { setActive, setInActive } = loginSlice.actions;
+export const { reducer: loginReducer } = loginSlice;

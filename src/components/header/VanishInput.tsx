@@ -19,14 +19,13 @@ export function VanishInput() {
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setQuery(e.target.value)
 
   };
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(searchQuery(query))
-    console.log("button submitted hoy hi ....");
+
   };
   return (
     <div className="">

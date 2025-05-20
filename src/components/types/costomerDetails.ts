@@ -8,7 +8,7 @@ export interface FormData{
     pickupLocation:string;
     dropdownLocation:string
     date:Date|null;
-    time:String;
+    time:string;
     file:File|null;
     address:string;
     

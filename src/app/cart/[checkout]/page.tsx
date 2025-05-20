@@ -20,7 +20,6 @@ const CheckoutPage = () => {
     const updateItems = products.find((item) => item.id === Number(checkout));
     console.log("updated product is", updateItems);
 
-    // console.log("product match",updateItems)
     const [formData, setFormData] = useState<FormData>({
         fname: "",
         email: "",

@@ -29,12 +29,6 @@ export const cartSlice = createSlice({
         if(!updateItem){
           state.cart.push(cartItem)
         }
-        // else{
-        // const existingItem = state.cart.find((item)=>item.id===cartItem.id)
-        //  if(existingItem){
-        //     existingItem.quantity += cartItem.quantity
-        //  }
-        // }
       
       },
 

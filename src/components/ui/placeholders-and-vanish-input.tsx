@@ -4,37 +4,52 @@ import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
+type DataPoint = {
+  x: number;
+  y: number;
+  r: number;
+  color: string;
+};
+
+type PlaceholdersAndVanishInputProps = {
+  placeholders: string[];
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
 export function PlaceholdersAndVanishInput({
   placeholders,
   value,
   setValue,
   onChange,
   onSubmit,
-}: {
-  placeholders: string[];
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-}) {
-  const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
-
+}: PlaceholdersAndVanishInputProps) {
+  const [currentPlaceholder, setCurrentPlaceholder] = useState<number>(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const startAnimation = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentPlaceholder((prev) => (prev + 1) % placeholders.length);
-    }, 3000);
-  };
-  const handleVisibilityChange = () => {
-    if (document.visibilityState !== "visible" && intervalRef.current) {
-      clearInterval(intervalRef.current); // Clear the interval when the tab is not visible
-      intervalRef.current = null;
-    } else if (document.visibilityState === "visible") {
-      startAnimation(); // Restart the interval when the tab becomes visible
-    }
-  };
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const newDataRef = useRef<DataPoint[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [animating, setAnimating] = useState<boolean>(false);
 
   useEffect(() => {
+    const startAnimation = () => {
+      intervalRef.current = setInterval(() => {
+        setCurrentPlaceholder((prev) => (prev + 1) % placeholders.length);
+      }, 3000);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState !== "visible" && intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      } else if (document.visibilityState === "visible") {
+        startAnimation();
+      }
+    };
+
     startAnimation();
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
@@ -46,11 +61,6 @@ export function PlaceholdersAndVanishInput({
     };
   }, [placeholders]);
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const newDataRef = useRef<any[]>([]);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [animating, setAnimating] = useState(false);
-
   const draw = useCallback(() => {
     if (!inputRef.current) return;
     const canvas = canvasRef.current;
@@ -61,8 +71,8 @@ export function PlaceholdersAndVanishInput({
     canvas.width = 800;
     canvas.height = 800;
     ctx.clearRect(0, 0, 800, 800);
-    const computedStyles = getComputedStyle(inputRef.current);
 
+    const computedStyles = getComputedStyle(inputRef.current);
     const fontSize = parseFloat(computedStyles.getPropertyValue("font-size"));
     ctx.font = `${fontSize * 2}px ${computedStyles.fontFamily}`;
     ctx.fillStyle = "#FFF";
@@ -70,12 +80,13 @@ export function PlaceholdersAndVanishInput({
 
     const imageData = ctx.getImageData(0, 0, 800, 800);
     const pixelData = imageData.data;
-    const newData: any[] = [];
+
+    const newData: { x: number; y: number; color: [number, number, number, number] }[] = [];
 
     for (let t = 0; t < 800; t++) {
-      let i = 4 * t * 800;
+      const i = 4 * t * 800;
       for (let n = 0; n < 800; n++) {
-        let e = i + 4 * n;
+        const e = i + 4 * n;
         if (
           pixelData[e] !== 0 &&
           pixelData[e + 1] !== 0 &&
@@ -110,7 +121,7 @@ export function PlaceholdersAndVanishInput({
   const animate = (start: number) => {
     const animateFrame = (pos: number = 0) => {
       requestAnimationFrame(() => {
-        const newArr = [];
+        const newArr: DataPoint[] = [];
         for (let i = 0; i < newDataRef.current.length; i++) {
           const current = newDataRef.current[i];
           if (current.x < pos) {
@@ -126,21 +137,22 @@ export function PlaceholdersAndVanishInput({
             newArr.push(current);
           }
         }
+
         newDataRef.current = newArr;
         const ctx = canvasRef.current?.getContext("2d");
         if (ctx) {
           ctx.clearRect(pos, 0, 800, 800);
-          newDataRef.current.forEach((t) => {
-            const { x: n, y: i, r: s, color: color } = t;
-            if (n > pos) {
+          newDataRef.current.forEach(({ x, y, r, color }) => {
+            if (x > pos) {
               ctx.beginPath();
-              ctx.rect(n, i, s, s);
+              ctx.rect(x, y, r, r);
               ctx.fillStyle = color;
               ctx.strokeStyle = color;
               ctx.stroke();
             }
           });
         }
+
         if (newDataRef.current.length > 0) {
           animateFrame(pos - 8);
         } else {
@@ -149,6 +161,7 @@ export function PlaceholdersAndVanishInput({
         }
       });
     };
+
     animateFrame(start);
   };
 
@@ -161,9 +174,8 @@ export function PlaceholdersAndVanishInput({
   const vanishAndSubmit = () => {
     setAnimating(true);
     draw();
-
-    const value = inputRef.current?.value || "";
-    if (value && inputRef.current) {
+    const currentValue = inputRef.current?.value || "";
+    if (currentValue && inputRef.current) {
       const maxX = newDataRef.current.reduce(
         (prev, current) => (current.x > prev ? current.x : prev),
         0
@@ -175,19 +187,19 @@ export function PlaceholdersAndVanishInput({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     vanishAndSubmit();
-    onSubmit && onSubmit(e);
+    onSubmit(e);
   };
+
   return (
     <form
       className={cn(
-        "w-full relative max-w-xl mx-auto dark:bg-zinc-800 h-5 rounded-full overflow-hidden  transition duration-200",
-        
+        "w-full relative max-w-xl mx-auto dark:bg-zinc-800 h-5 rounded-full overflow-hidden transition duration-200"
       )}
       onSubmit={handleSubmit}
     >
       <canvas
         className={cn(
-          "absolute pointer-events-none  text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
+          "absolute pointer-events-none text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
           !animating ? "opacity-0" : "opacity-100"
         )}
         ref={canvasRef}
@@ -196,7 +208,7 @@ export function PlaceholdersAndVanishInput({
         onChange={(e) => {
           if (!animating) {
             setValue(e.target.value);
-            onChange && onChange(e);
+            onChange(e);
           }
         }}
         onKeyDown={handleKeyDown}
@@ -208,30 +220,15 @@ export function PlaceholdersAndVanishInput({
           animating && "text-transparent dark:text-transparent"
         )}
       />
-
-      
-
       <div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
         <AnimatePresence mode="wait">
           {!value && (
             <motion.p
-              initial={{
-                y: 5,
-                opacity: 0,
-              }}
+              initial={{ y: 5, opacity: 0 }}
               key={`current-placeholder-${currentPlaceholder}`}
-              animate={{
-                y: 0,
-                opacity: 1,
-              }}
-              exit={{
-                y: -15,
-                opacity: 0,
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "linear",
-              }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -15, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "linear" }}
               className="dark:text-zinc-500 text-sm sm:text-base font-normal text-neutral-500 pl-2 text-left w-[calc(100%-2rem)] truncate"
             >
               {placeholders[currentPlaceholder]}

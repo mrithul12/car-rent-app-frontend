@@ -7,7 +7,7 @@ import Search from "../search/search";
 
 const Products = async () => {
   const getItems: ProductsType[] = await getProduct();
-  // const product = await getProduct()
+ 
   
   return (
     <div>

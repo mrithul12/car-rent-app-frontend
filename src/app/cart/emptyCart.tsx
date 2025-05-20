@@ -14,9 +14,8 @@ const EmptyCart =  () => {
 
     useEffect(()=>{
       dispatch(fetchProducts())
-    },[])
+    },[dispatch])
 
-    console.log("fetch product",products)
 
 
   

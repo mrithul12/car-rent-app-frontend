@@ -18,8 +18,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const route = useRouter();
 
-  
-  console.log("add to cart", cartItems.length)
   return (
     <>
       {cartItems.length < 1 && <Empty/>}
