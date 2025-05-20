@@ -28,10 +28,10 @@ export function VanishInput() {
 
   };
   return (
-    <div className="text-[#fff] bg-[#fff]   w-full">
+    <div className="text-[#fff] bg-[#fff] placeholder:bg-[#ffff]   w-full">
 
       <PlaceholdersAndVanishInput
-        placeholders={placeholders}
+        placeholders={placeholders }
         value={query}
         setValue={setQuery}
         onChange={handleChange}
