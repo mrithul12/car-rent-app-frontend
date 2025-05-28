@@ -1,32 +1,33 @@
-'use client'
-import { useAppSelector } from '@/store/hooks'
-import React from 'react'
-import { ProductsType } from '../types/products'
-import { ProductList } from '../products/ProductList'
+"use client";
+import { useAppSelector } from "@/store/hooks";
+import React from "react";
+import { ProductsType } from "../types/products";
+import { ProductList } from "../products/ProductList";
 
-interface SearchState{
-  getItems:ProductsType[]
+interface SearchState {
+  getItems: ProductsType[];
 }
 
-const Search = ({getItems}:SearchState) => {
+const Search = ({ getItems }: SearchState) => {
+  const query = useAppSelector((state) => state.query.query);
 
-  const query = useAppSelector((state)=>state.query.query)
+  const searchQuery =
+    query.length > 0
+      ? getItems.filter((items) =>
+          items.title.toLowerCase().includes(query.toLowerCase())
+        )
+      : [];
 
-  const searchQuery = query.length>0 ? getItems.filter((items)=>
-     items.title.toLowerCase().includes(query.toLowerCase())
-  ):[]
+  console.log("dddd", searchQuery);
 
-  console.log("dddd",searchQuery);
-  
-
-  
-    
   return (
     <div>
-     {searchQuery.length>0 && <h2 className='font-medium px-4'>Searched Items...</h2>} 
+      {searchQuery.length > 0 && (
+        <h2 className="font-medium px-4">Searched Items...</h2>
+      )}
       <ProductList getItems={searchQuery} />
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

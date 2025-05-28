@@ -1,5 +1,3 @@
-import { rgba } from "framer-motion";
-import { url } from "inspector";
 import React from "react";
 
 const About = () => {
@@ -12,7 +10,7 @@ const About = () => {
         height: "100vh",
         alignItems: "center",
         justifyContent: "center",
-        color:"rgba(0, 0, 0, 0.9)"
+        color: "rgba(0, 0, 0, 0.9)",
       }}
       className="p-5 font-sans   w-full "
     >

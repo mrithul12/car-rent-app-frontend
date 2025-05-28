@@ -122,7 +122,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      {/* desktop */}
+
       <div className="hidden justify-end lg:flex ">
         <ul className="flex gap-4 items-center">
           {headerList.map((item, index) => {
