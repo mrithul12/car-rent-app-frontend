@@ -16,6 +16,9 @@ const Search = ({getItems}:SearchState) => {
      items.title.toLowerCase().includes(query.toLowerCase())
   ):[]
 
+  console.log("dddd",searchQuery);
+  
+
   
     
   return (

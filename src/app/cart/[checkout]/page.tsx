@@ -2,18 +2,20 @@
 
 import Data from "@/components/hardcodeData/data";
 import { FormData } from "@/components/types/costomerDetails";
+
 import { useAppSelector } from "@/store/hooks";
 
 
 import Image from "next/image";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 import React, { useState } from "react";
 
 const CheckoutPage = () => {
     const param = useParams();
     const { checkout } = param;
+    const route = useRouter()
 
     const products = useAppSelector((state) => state.product.product);
 
@@ -275,7 +277,7 @@ const CheckoutPage = () => {
                     </div>
 
                     <div className="">
-                        <button
+                        <button onClick={()=>route.push('/order/success')}
                             type="submit"
                             className="bg-blue-900 text-[#ffff] p-2 w-full  rounded-[5]"
                         >
