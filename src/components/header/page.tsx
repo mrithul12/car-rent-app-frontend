@@ -18,7 +18,7 @@ const Header = () => {
   const [togle, setToggle] = useState<boolean>(false);
   const cartCount = useAppSelector((state) => state.cartItem.cart);
   const cartCountLength = cartCount.length;
-  console.log("cart items", cartCountLength);
+ 
   const dispatch = useAppDispatch();
 
   const handleLogin = () => {

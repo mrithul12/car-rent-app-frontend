@@ -18,7 +18,7 @@ const Search = ({ getItems }: SearchState) => {
         )
       : [];
 
-  console.log("dddd", searchQuery);
+
 
   return (
     <div>

@@ -20,7 +20,7 @@ const CheckoutPage = () => {
     const products = useAppSelector((state) => state.product.product);
 
     const updateItems = products.find((item) => item.id === Number(checkout));
-    console.log("updated product is", updateItems);
+ 
 
     const [formData, setFormData] = useState<FormData>({
         fname: "",
@@ -39,7 +39,7 @@ const CheckoutPage = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("details", formData);
+    
     };
 
     return (

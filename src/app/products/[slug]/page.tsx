@@ -13,7 +13,7 @@ interface pageParams{
 }
 export default async function ProductDetails({params}:pageParams) {
     const {slug} = await params;
-    console.log("details",slug);
+ 
     
 
     const item:ProductsType[] = await getProductDetails(slug)
