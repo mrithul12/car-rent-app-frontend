@@ -246,5 +246,5 @@ const carData: Car[] = [
 
 
 export async function GET() {
-  return NextResponse.json(carData);
+  return NextResponse.json({data:carData});
 }
