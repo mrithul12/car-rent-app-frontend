@@ -21,14 +21,14 @@ const About = () => {
           </h2>
           <p className="mt-2  ">
             Founded in 2015, DriveNow Rentals has been helping customers across
-            12+ cities find the perfect vehicle for any occasion. Whether it’s a
-            weekend trip or a business journey, we’ve got the right car for you.
+            12+ cities find the perfect vehicle for any occasion. Whether it is a
+            weekend trip or a business journey, we have got the right car for you.
           </p>
         </div>
         <div className=" mt-5  rounded-[10]  ">
           <h1 className="font-bold text-[18px] sm:text-[30px]">About Us</h1>
           <p className="mt-2 ">
-            Part of CarTrade Tech, CarWale's mission is to bring delight in car
+            Part of CarTrade Tech, CarWales mission is to bring delight in car
             buying, we offer a bouquet of reliable tools and services to help
             car consumers decide on buying the right car, at the right price and
             from the right partner.
