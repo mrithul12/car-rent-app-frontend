@@ -18,3 +18,17 @@ thumbnail:{
 slug: string
 
 }
+
+
+export type Car = {
+  id: number;
+  brand: string;
+  model: string;
+  year: number;
+  type: "sedan" | "suv" | "luxury";
+  pricePerDay: number;
+  fuelType: string;
+  seats: number;
+  transmission: string;
+  imageUrl: string;
+};

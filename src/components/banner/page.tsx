@@ -9,7 +9,7 @@ const Banner = () => {
   return (
     <AnimatePresence>
       <div className="grid  sm:grid-cols-2 p-4  gap-2 text-[#fff]">
-        <div className="bg-blue-700 rounded-[5] p-1 flex flex-col justify-between">
+        <div className="bg-amber-600 rounded-[5] p-1 flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <motion.h1
               key={1}

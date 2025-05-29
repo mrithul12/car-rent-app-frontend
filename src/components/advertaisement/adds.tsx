@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const images = ["/images/add1.jpg", "/images/add-2.jpg"];
+const images = [ "/images/add-2.jpg","/images/add1.jpg"];
 
 export default function Add() {
   const [current, setCurrent] = useState(0);
@@ -31,9 +31,11 @@ export default function Add() {
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg w-full"
+              width={1000}
+              height={1000}
+              
+              
+              className="rounded-lg w-full shadow object-cover "
             />
           </div>
         ))}

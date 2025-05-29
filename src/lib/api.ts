@@ -11,3 +11,12 @@ export const getProductDetails = async (slug:string) =>{
    const data = await response.json();
    return data.data;
 }
+
+export const carFetch = async ()=>{
+   const response = await fetch('http://localhost:3000/api/cars')
+   const data =await response.json()
+   return data
+  
+}
+
+
