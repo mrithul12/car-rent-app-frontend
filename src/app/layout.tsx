@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-       <body className={`${inter.variable} ${robotoMono.variable} antialiased bg-gray-50`}>
+       <body className={`${inter.variable} ${robotoMono.variable} antialiased `}>
 
       
         <StoreProvider>

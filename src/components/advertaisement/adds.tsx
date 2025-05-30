@@ -1,24 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const images = [ "/images/add-2.jpg","/images/add1.jpg"];
+const images = [
+  "/images/advertaisment-image.jpg",
+  "/images/advertaisment-image-2.jpg",
+];
 
 export default function Add() {
   const [current, setCurrent] = useState(0);
   const length = images.length;
 
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+  const nextSlide = () => {
+    setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
   };
 
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? length - 1 : prev - 1));
   };
+
+  // Auto-slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); // 3000ms = 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [current]);
 
   return (
-    <div className="relative w-full  mx-auto overflow-hidden rounded-lg p-3">
+    <div className="relative w-full mx-auto overflow-hidden rounded-lg p-2">
       <div
         className="flex gap-3 transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -26,16 +38,14 @@ export default function Add() {
         {images.map((src, index) => (
           <div
             key={index}
-            className="min-w-full h-40 sm:h-60 md:h-70 lg:h-100 relative"
+            className="min-w-full h-40 sm:h-60 md:h-70 lg:h-85 relative"
           >
             <Image
               src={src}
               alt={`Slide ${index + 1}`}
               width={1000}
               height={1000}
-              
-              
-              className="rounded-lg w-full shadow object-cover "
+              className="rounded-lg w-full h-40 sm:h-50 md:h-60 lg:h-85 object-fill"
             />
           </div>
         ))}

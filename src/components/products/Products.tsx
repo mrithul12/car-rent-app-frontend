@@ -3,6 +3,8 @@ import React from "react";
 import { ProductsType } from "../types/products";
 import { ProductList } from "./ProductList";
 import Search from "../search/search";
+import CarProduct from "@/app/products/page";
+
 
 const Products = async () => {
   const getItems: ProductsType[] = await getProduct();
@@ -17,6 +19,7 @@ const Products = async () => {
       </h1>
       <Search getItems={getItems} />
       <ProductList getItems={getItems} />
+      <CarProduct/>
     </div>
   );
 };

@@ -22,5 +22,5 @@ export const getProductDetails = async (slug: string) => {
 export const carFetch = async (): Promise<Car[]> => {
   const response = await fetch(`${BASE_URL}/api/cars`);
   const data = await response.json();
-  return data;
+  return data.data;
 };

@@ -1,11 +1,11 @@
 "use client";
 
-import { ProductList } from "@/components/products/ProductList";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { fetchProducts } from "@/store/slices/productSlice";
 import React, { useEffect } from "react";
+import { ProductList } from "../products/ProductList";
 
-const EmptyCart = () => {
+const CartProduct = () => {
   const products = useAppSelector((state) => state.product.product);
 
   const dispatch = useAppDispatch();
@@ -23,4 +23,4 @@ const EmptyCart = () => {
   );
 };
 
-export default EmptyCart;
+export default CartProduct;

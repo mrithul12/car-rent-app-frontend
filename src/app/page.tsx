@@ -1,4 +1,4 @@
-import Adds from "@/components/advertaisement/adds";
+import Adds from "@/components/advertaisement/Adds";
 
 import Products from "@/components/products/Products";
 

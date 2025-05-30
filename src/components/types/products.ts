@@ -20,15 +20,15 @@ slug: string
 }
 
 
-export type Car = {
+export type Car  = {
   id: number;
   brand: string;
   model: string;
   year: number;
-  type: "sedan" | "suv" | "luxury";
+  type: string;
   pricePerDay: number;
   fuelType: string;
   seats: number;
   transmission: string;
-  imageUrl: string;
+  image:string;
 };

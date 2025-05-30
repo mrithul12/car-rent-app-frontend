@@ -1,7 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import React from "react";
 
-const Empty = () => {
+const CartEmptyDisplay = () => {
     return (
         <div className="w-full h-[30vh] flex justify-center items-center">
             <span className="flex flex-col items-center">
@@ -13,4 +13,4 @@ const Empty = () => {
     );
 };
 
-export default Empty;
+export default CartEmptyDisplay;
