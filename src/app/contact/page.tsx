@@ -1,90 +1,103 @@
-// app/contact/page.tsx
 "use client";
+import { ContactData } from "@/components/types/costomerDetails";
+import { Facebook, Instagram, Twitter } from "lucide-react";
+import React, { useState } from "react";
 
-import { useState } from "react";
-
-
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
+const ContactPage = () => {
+  const [alert, setAlert] = useState<boolean>(false);
+  const [form, setForm] = useState<ContactData>({
     name: "",
-    email: "",
-    phone: "",
-    bookingId: "",
+    mail: "",
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-   
+    setAlert(true);
+    setTimeout(() => setAlert(false), 3000);
+    setForm({ name: "", mail: "", message: "" });
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 space-y-8">
-      <div className="text-center">
-        <h1 className="text-3xl font-bold">Contact Us  Wehere Here to Help</h1>
-        <p className="text-gray-600 mt-2">
-          Have questions about your rental or need support? Reach out below.
-        </p>
-      </div>
-
-      {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="grid gap-4 bg-white p-6 rounded-xl shadow-md">
-        <input name="name" placeholder="Full Name" value={formData.name} onChange={handleChange} required className="bg-gray-300 p-2 rounded-[10]" />
-        <input name="email" type="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required className="bg-gray-300 p-2 rounded-[10]"/>
-        <input name="phone" placeholder="Phone Number (Optional)" value={formData.phone} onChange={handleChange} className="bg-gray-300 p-2 rounded-[10]"/>
-        <input name="bookingId" placeholder="Rental Booking ID (if any)" value={formData.bookingId} onChange={handleChange} className="bg-gray-300 p-2 rounded-[10]"/>
-        <textarea name="message" placeholder="Your Message" rows={5} value={formData.message} onChange={handleChange} required className="bg-gray-300 p-2 rounded-[10]"/>
-        <button type="submit" className="w-full bg-blue-800 p-2 rounded-[10]">Send Message</button>
-      </form>
-
-      {/* Contact Info */}
-      <div className="grid md:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-xl shadow-sm">
-        <div>
-          <h2 className="text-xl font-semibold">Reach Us Directly</h2>
-          <ul className="mt-3 space-y-2 text-gray-700">
-            <li><strong>Email:</strong> carrentsupport@gmail.com</li>
-            <li><strong>Phone:</strong> +91 99 99 999 999</li>
-            <li><strong>WhatsApp:</strong> +91 99 99 999 999</li>
-            <li><strong>Hours:</strong> Mon Sun, 8 AM 8 PM</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-semibold">Visit Us</h2>
-          <p className="mt-3 text-gray-700">
-            malapppuram,vengara
-          </p>
-          <div className="mt-4 h-40 w-full bg-gray-200 rounded-md flex items-center justify-center">
+    <div
+      style={{ backgroundImage: "url('/images/dark-shade.jpg')" }}
+      className="min-h-screen bg-cover bg-center h-full w-full grid justify-between"
+    >
+      <form onSubmit={handleSubmit}>
+        <div className="grid sm:grid-cols-2 text-white  h-100 p-2 ">
+          <div className="flex flex-col justify-center   sm:px-20">
+            <h1 className="text-start font-bold text-[2em] sm:text-[3.5em] text-white">
+              Contact Us
+            </h1>
+            <p className="">
+              Need assistance with your rental or have a question about our
+              services? Our team is here to help. Contact us today and we'll get
+              back to you promptly to ensure a smooth and hassle-free
+              experience.
+            </p>
+          </div>
+          <div className="flex flex-col justify-center gap-2 w-fit sm:px-20 text-black">
+            <div className="flex gap-3 mt-5 ">
+              <input
+                type="text"
+                placeholder="Name"
+                className="bg-[#fff]  p-2 border-0 outline-0"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+              />
+              <input
+                type="email"
+                placeholder="example@gmail.com"
+                className="bg-[#fff] p-2 border-0 outline-0"
+                name="mail"
+                value={form.mail}
+                onChange={handleChange}
+              />
+            </div>
             <div className="w-full ">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.117120476309!2d-122.41941548467848!3d37.77492927975915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085818c6aa3aaf5%3A0xc1dd6a2d173234d9!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1617043953153!5m2!1sen!2sus"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-            
+              <textarea
+                className="bg-[#fff]  w-full h-50 border-0 outline-0 p-2"
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div>
+              <button type="submit" className="w-full bg-amber-400 p-2">
+                submit
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Social Media Links */}
-      <div className="text-center space-y-2">
-        <h2 className="text-xl font-semibold">Connect with Us</h2>
-        <div className="flex justify-center space-x-6 text-blue-600">
-          <a href="#" aria-label="Facebook" className="hover:underline">Facebook</a>
-          <a href="#" aria-label="Instagram" className="hover:underline">Instagram</a>
-          <a href="#" aria-label="Twitter" className="hover:underline">Twitter</a>
+      </form>
+      <div className="text-[#fff] flex flex-col justify-center items-center ">
+        <div className="font-bold text-[2.5em]">
+          <h1>Connect With Us</h1>
         </div>
+        <div className=" flex gap-5 mt-5">
+          <Facebook />
+          <Instagram />
+          <Twitter />
+        </div>
+      </div>
+      <div>
+        {alert && (
+          <div className="fixed top-15  w-full   text-white  rounded shadow-lg z-50">
+            <p className="w-full text-center  p-5 bg-green-500">
+              Thank you for submitting your feedback!
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default ContactPage;

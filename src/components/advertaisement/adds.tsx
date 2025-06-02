@@ -20,13 +20,13 @@ export default function Add() {
     setCurrent((prev) => (prev === 0 ? length - 1 : prev - 1));
   };
 
-  // Auto-slide every 3 seconds
+ 
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000); // 3000ms = 3 seconds
+    }, 3000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval); 
   }, [current]);
 
   return (

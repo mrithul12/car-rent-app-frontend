@@ -2,7 +2,6 @@
 
 export interface FormData{
     fname:string;
-
     email:string;
     number:string;
     pickupLocation:string;
@@ -11,15 +10,12 @@ export interface FormData{
     time:string;
     file:File|null;
     address:string;
-    
-
-
 }
 
-export interface DataState{
+
+
+export interface ContactData{
     name:string;
-    title:string;
-    description:string;
-    date:string
-    image:string
-};
+    mail:string;
+    message:string;
+}

@@ -7,7 +7,7 @@ export interface ProductsType{
 id:number    
 title:string;
 company:string;
-price:number;
+price:number |undefined
 capacity:string;
 transmission:string;
 milage:string;

@@ -4,14 +4,15 @@ import "./globals.css";
 import Header from "@/components/header/page";
 import StoreProvider from "./StoreProvider";
 import LoginPage from "@/components/login/page";
+import Footer from "@/components/footer/page";
 
 const inter = Inter({
- variable: "--font-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const robotoMono = Roboto_Mono({
- variable: "--font-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -27,17 +28,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
-       <body className={`${inter.variable} ${robotoMono.variable} antialiased `}>
-
-      
+      <body className={`${inter.variable} ${robotoMono.variable} antialiased `}>
         <StoreProvider>
           <Header />
-              <LoginPage/>
+          <LoginPage />
 
           {children}
+          <Footer />
         </StoreProvider>
-
       </body>
     </html>
   );

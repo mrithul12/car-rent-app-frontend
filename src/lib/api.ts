@@ -1,3 +1,4 @@
+
 import { Car } from "@/components/types/products";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
@@ -24,3 +25,5 @@ export const carFetch = async (): Promise<Car[]> => {
   const data = await response.json();
   return data.data;
 };
+
+

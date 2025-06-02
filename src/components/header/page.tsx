@@ -109,9 +109,9 @@ const Header = () => {
 
               <button
                 onClick={() => handleLogin()}
-                className="font-bold text-white bg-blue-400 px-2  text-[13px] cursor-pointer py-1"
+                className="font-bold  border-1 px-2 hover:bg-amber-500 hover:text-[#fff]  text-[13px] cursor-pointer py-1"
               >
-                LOGIN/SIGN UP
+                LOGIN
               </button>
             </ul>
             <X
@@ -132,8 +132,8 @@ const Header = () => {
                   href={item.url}
                   className={`${
                     pathName === item.url
-                      ? "font-bold text-amber-500 relative flex justify-between"
-                      : "relative  flex justify-between"
+                      ? "font-bold text-amber-500 relative underline flex justify-between"
+                      : "relative hover:underline hover:text-amber-500  flex justify-between"
                   }`}
                 >
                   {" "}
@@ -150,9 +150,9 @@ const Header = () => {
 
           <button
             onClick={() => dispatch(setActive())}
-            className="font-bold text-white bg-blue-400 px-2  text-[13px] cursor-pointer py-1"
+            className="font-bold border-1 px-2 hover:bg-amber-500 hover:text-[#fff] rounded-[10]   text-[13px] cursor-pointer py-1"
           >
-            LOGIN/SIGN UP
+            LOGIN
           </button>
         </ul>
       </div>

@@ -14,8 +14,8 @@ const Products = async () => {
 
   return (
     <div>
-      <h1 className="sm:px-20 font-medium sm:text-[2em] text-[1.5em] px-3">
-        Budget Cars
+      <h1 className="sm:px-20 font-bold sm:text-[2em] text-[1.5em] px-3">
+        Rent for cars
       </h1>
       <Search getItems={getItems} />
       <ProductList getItems={getItems} />

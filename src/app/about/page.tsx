@@ -10,7 +10,7 @@ const About = () => {
           alt="imaegs"
           width={3000}
           height={1000}
-          className="w-full h-[40vh] lg:h-[80vh] md:h-[50vh] sm:h-[50vh]"
+          className="w-full h-[40vh] lg:h-[100vh] md:h-[50vh] sm:h-[50vh]"
         />
       </div>
 

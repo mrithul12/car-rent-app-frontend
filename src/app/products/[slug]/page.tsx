@@ -1,5 +1,5 @@
 
-import Data from '@/components/hardcodeData/data';
+// import Data from '@/components/hardcodeData/data';
 import { ProductsType } from '@/components/types/products';
 import { getProductDetails } from '@/lib/api';
 import Image from 'next/image';
@@ -16,96 +16,66 @@ export default async function ProductDetails({params}:pageParams) {
  
     
 
-    const item:ProductsType[] = await getProductDetails(slug)
+    const updateItems:ProductsType[] = await getProductDetails(slug)
   return (
-    <div className='w-[100%]'>
-       {item.map((item)=>{
-      return(
-      <div className=" rounded-[5] " key={item.id}>
-                <div className="w-full grid grid-cols-1">
-                    {item?.thumbnail?.url && (
-                        <Image
-                            src={item.thumbnail.url}
-                            alt={item?.title}
-                            width={650}
-                            height={660}
-                            className="w-[100%] h-auto rounded-[10]"
-                        />
-                    )}
-                </div>
-                <div className="grid grid-cols-3  gap-1 place-items-center  p-5">
-                    {item?.images.map((img, i) => (
-                        <Image
-                            key={i}
-                            src={img.url}
-                            alt={img.url}
-                            width={300}
-                            height={10}
-                            className="rounded-[10] w-[100px] sm:w-[300px] h-[80px] sm:h-[150px]"
-                        />
-                    ))}
-                </div>
-                <div className="bg-[#fff] mt-2 rounded-[10] p-5">
-                    <h1 className="text-[2.5em] font-medium">{item?.title}</h1>
-                    <p className="text-[#f3aa0c] font-bold text-[1.5em] flex ">
-                        ★ ★ ★ ★ ☆
-                    </p>
-                    <p className="text-[15px]">
-                        Your journey begins with a tap. Whether it’s a weekend escape or a
-                        daily ride, our sleek, hassle-free rental service puts the perfect
-                        car at your fingertips. No paperwork. No waiting. Just drive.
-                    </p>
-                    <div className="flex justify-between">
-                        <div className="flex flex-col items-center">
-                            <p className="font-bold">Milage</p>
-                            <p>{item?.milage}/Ltr</p>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <p className="font-bold">Transmission</p>
-                            <p>{item?.transmission}</p>
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <p className="font-bold">Capacity</p>
-                            <p>{item?.capacity} person</p>
-                        </div>
+   <div className='sm:px-20 p-5 sm:flex  gap-5 '>
+    <div className=''>
+        {updateItems.map((item,index)=>{
+            return(
+                <div key={index} >
+                    <div className='sm:flex items-center '>
+                        <div>
+                       <Image src={item.thumbnail.url} alt={item.title} width={1000} height={1000} className='w-100 ' />
                     </div>
-                    <div className="flex justify-end mt-3">
-                        <p className="font-[500]"><span className="text-[2em] font-[700]"> {item?.price}</span>/Day</p>
-                    </div>
-                </div>
 
-                <div className="bg-[#fff] mt-5 p-5 rounded-[10]">
-                    {Data.map((i) => {
-                        return (
-                            <div key={i.name}>
-                                <div className="flex w-full items-center justify-between mt-2">
-                                    <div className="flex items-center gap-2 ">
-                                        <Image
-                                            src={i.image}
-                                            alt={i.title}
-                                            width={40}
-                                            height={40}
-                                            className="rounded-[50%]" />
-                                        <p className="font-bold">{i.name}</p>
-                                    </div>
-                                    <div className="flex flex-col items-end">
-
-                                        <p className="font-bold">{i.date}</p>
-                                        <p className="text-[#f3aa0c] font-bold text-[1em] flex "> ★ ★ ★ ★ ☆</p>
-
-                                    </div>
-
-                                </div>
-
-                                <p className="mt-2 font-bold">{i.title}</p>
-                                <p className="mt-5">{i.description}</p>
+                    <div className='flex sm:flex-col gap-2'>
+                      {item.images.map((item,index)=>{
+                         return(
+                            <div key={index} className=''>
+                                <Image src={item.url} alt={item.url} width={1000} height={1000} className='w-50 rounded-[10]'/>
                             </div>
-                        )
-                    })}
-                </div>
-            </div>
-      )
-    })}</div>
+                         )
+                      })}
+                    </div>
+                    </div>
+                   
 
+
+                </div>
+            )
+        })}
+        
+    </div>
+    <div className='mt-5 sm:mt-0'>
+        {updateItems.map((item,index)=>{
+            return(
+                <div key={index}>
+                    <div className='font-bold'>
+                       <h1>{item.title.toUpperCase()} {item.company.toUpperCase()}</h1>
+                    </div>
+                    <div className='flex gap-5 text-gray-500 mt-2 '>
+                       <p>{item.transmission}</p>
+                       <p>{item.capacity} Seater</p>
+                       <p>{item.milage} Milage</p>
+                    </div>
+                    <div className='mt-5'>
+                        <ul>
+                            <li><b>Mileage</b> <span className='text-[13px] text-gray-500'>Unlimited mileage available on select models.</span></li>
+                            <li><b>Fuel Policy</b> <span className='text-[13px] text-gray-500'>Full-to-full fuel policy for transparent pricing.</span></li>
+                            <li><b>Insurance</b> <span className='text-[13px] text-gray-500'>Comprehensive coverage included.</span></li>
+                            <li><b>Requirements</b> <span className='text-[13px] text-gray-500'>Valid license & ID required. Must be 21+</span></li>
+                    
+                        </ul>
+                    </div>
+                    <div className='mt-5'>
+                        <button className='bg-blue-700 text-[#fff] w-full px-10 rounded-[10] p-2' >Add to cart</button>
+                    </div>
+                </div>
+                
+            )
+        })}
+    </div>
+   </div>
   )
 }
+                    

@@ -1,5 +1,5 @@
 
-import AddBanner from "@/components/advertaisement/AddBanner";
+// import AddBanner from "@/components/advertaisement/AddBanner";
 import ProductData from "@/components/products/carProduct";
 import { Car } from "@/components/types/products";
 import { carFetch } from "@/lib/api";
@@ -9,7 +9,7 @@ const CarProduct = async () => {
 
   return (
     <div>
-      <AddBanner/>
+      {/* <AddBanner/> */}
       <ProductData carDatas={carDatas} />
     </div>
   );
