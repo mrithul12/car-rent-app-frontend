@@ -37,7 +37,7 @@ const ContactPage = () => {
             </h1>
             <p className="">
               Need assistance with your rental or have a question about our
-              services? Our team is here to help. Contact us today and we'll get
+              services. Our team is here to help. Contact us today and we will get
               back to you promptly to ensure a smooth and hassle-free
               experience.
             </p>
