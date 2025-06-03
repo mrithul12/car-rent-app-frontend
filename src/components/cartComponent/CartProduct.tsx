@@ -3,7 +3,7 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { fetchProducts } from "@/store/slices/productSlice";
 import React, { useEffect } from "react";
-import { ProductList } from "../products/ProductList";
+import { ProductList } from "../productsComponent/ProductList";
 
 const CartProduct = () => {
   const products = useAppSelector((state) => state.product.product);

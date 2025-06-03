@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import CartComponent from "@/components/cartComponent/CartComponent";
 import { Car } from "@/components/types/products";
 import { carFetch } from "@/lib/api";
-import ProductData from "@/components/products/carProduct";
+import ProductData from "@/components/productsComponent/carProduct";
 import CartProduct from "@/components/cartComponent/CartProduct";
 
 const Cart = async () => {

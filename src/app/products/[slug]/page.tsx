@@ -1,5 +1,5 @@
 
-// import Data from '@/components/hardcodeData/data';
+
 import { ProductsType } from '@/components/types/products';
 import { getProductDetails } from '@/lib/api';
 import Image from 'next/image';

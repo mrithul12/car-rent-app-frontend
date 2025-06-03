@@ -2,7 +2,7 @@
 import { useAppSelector } from "@/store/hooks";
 import React from "react";
 import { ProductsType } from "../types/products";
-import { ProductList } from "../products/ProductList";
+import { ProductList } from "../productsComponent/ProductList";
 
 interface SearchState {
   getItems: ProductsType[];

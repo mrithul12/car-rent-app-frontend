@@ -23,7 +23,7 @@ const ProductData = ({ carDatas }: ProductDataType) => {
     }
   }, [carDatas, cartype]);
 
-  console.log("type", filteredCars);
+ 
 
   return (
     <div className="mt-5 ">

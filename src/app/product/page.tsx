@@ -1,4 +1,4 @@
-import { ProductList } from "@/components/products/ProductList";
+import { ProductList } from "@/components/productsComponent/ProductList";
 import Search from "@/components/search/search";
 import { ProductsType } from "@/components/types/products";
 import { getProduct } from "@/lib/api";
