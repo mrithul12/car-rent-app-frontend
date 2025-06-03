@@ -27,7 +27,7 @@ export default function Add() {
     }, 3000);
 
     return () => clearInterval(interval); 
-  }, [length]);
+  },);
 
   return (
     <div className="relative w-full mx-auto overflow-hidden rounded-lg p-2">
