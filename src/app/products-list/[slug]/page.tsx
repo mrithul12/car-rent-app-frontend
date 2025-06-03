@@ -15,8 +15,8 @@ export default async function ProductDetails({params}:pageParams) {
     const {slug} = await params;
  
     
-
     const updateItems:ProductsType[] = await getProductDetails(slug)
+    
   return (
    <div className='sm:px-20 p-5 sm:flex  gap-5 '>
     <div className=''>

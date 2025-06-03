@@ -5,7 +5,6 @@ import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input"
 import { useDispatch } from "react-redux";
 import { searchQuery } from "@/store/slices/searchSlice";
 
-
 export function VanishInput() {
 
   const dispatch = useDispatch()
