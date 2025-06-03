@@ -35,7 +35,7 @@ const ContactPage = () => {
             <h1 className="text-start font-bold text-[2em] sm:text-[3.5em] text-white">
               Contact Us
             </h1>
-            <p className="">
+            <p >
               Need assistance with your rental or have a question about our
               services. Our team is here to help. Contact us today and we will get
               back to you promptly to ensure a smooth and hassle-free

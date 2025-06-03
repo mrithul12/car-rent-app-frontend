@@ -1,7 +1,7 @@
 import {   getProduct } from "@/lib/api";
 import React from "react";
 import { ProductsType } from "../types/products";
-import { ProductList } from "./ProductList";
+// import { ProductList } from "./ProductList";
 import Search from "../search/search";
 
 
@@ -18,7 +18,7 @@ const Products = async () => {
         Cars for Rent
       </h1>
       <Search getItems={getItems} />
-      <ProductList getItems={getItems} />
+      {/* <ProductList getItems={getItems} /> */}
    
     </div>
   );
