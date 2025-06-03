@@ -1,12 +1,13 @@
 import Banner from "@/components/banner/page";
-import Products from "@/components/products/Products";
+
 import React from "react";
+import Product from "../product/page";
 
 const RentPage = () => {
   return (
     <div>
       <Banner />
-      <Products />
+      <Product />
     </div>
   );
 };

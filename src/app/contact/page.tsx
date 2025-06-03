@@ -42,7 +42,7 @@ const ContactPage = () => {
               experience.
             </p>
           </div>
-          <div className="flex flex-col justify-center gap-2 w-fit sm:px-20 text-black">
+          <div className="flex flex-col justify-center gap-2 w-fit md:px-20 text-black">
             <div className="flex gap-3 mt-5 ">
               <input
                 type="text"
