@@ -1,29 +1,17 @@
 "use client";
 
-import { Car } from "@/components/types/products";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { carFetch } from "@/store/slices/carDataslice";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-interface ProductDataType {
-  carDatas: Car[];
-}
-
-const ProductData = ({ carDatas }: ProductDataType) => {
-  const carTypes = ["all", "sedan", "suv", "luxury"];
-
-  const [cartype, setcarType] = useState<string>("all");
-  const [filteredCars, setFilterdcars] = useState<Car[]>(carDatas);
+const ProductData = () => {
+  const carDatas = useAppSelector((state) => state.carData.carData);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (cartype === "all" || cartype === "") {
-      setFilterdcars(carDatas);
-    } else {
-      const updateCar = carDatas.filter((item) => item.type === cartype);
-      setFilterdcars(updateCar);
-    }
-  }, [carDatas, cartype]);
-
- 
+    dispatch(carFetch());
+  }, [dispatch]);
 
   return (
     <div className="mt-5 ">
@@ -31,22 +19,8 @@ const ProductData = ({ carDatas }: ProductDataType) => {
         The Mosted Searched Car
       </h1>
 
-      <div className="sm:px-20 px-2 flex gap-5 mt-2 font-bold">
-        {carTypes.map((item, index) => {
-          return (
-            <div key={index}>
-              <button
-                className={cartype === item ? `underline text-amber-500` : ""}
-                onClick={() => setcarType(item)}
-              >
-                {item.toUpperCase()}
-              </button>
-            </div>
-          );
-        })}
-      </div>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3   lg:grid-cols-4 items-center gap-3 p-1 sm:px-20 mt-3">
-        {filteredCars.map((item, index) => {
+        {carDatas.map((item, index) => {
           return (
             <div
               key={index}

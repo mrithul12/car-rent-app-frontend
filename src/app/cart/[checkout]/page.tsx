@@ -1,18 +1,22 @@
 "use client";
 
-
-import { useAppSelector } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { fetchProducts } from "@/store/slices/productSlice";
 import { ChevronRight, Percent } from "lucide-react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-
-
+import { useEffect } from "react";
 
 const CheckoutPage = () => {
   const param = useParams();
   const { checkout } = param;
 
   const products = useAppSelector((state) => state.product.product);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   const updateItems = products.find((item) => item.id === Number(checkout));
 
   const updateFee = (updateItems?.price ?? 0) + 299;
@@ -78,10 +82,7 @@ const CheckoutPage = () => {
             </div>
           </div>
         </div>
-       
       </div>
-
-
 
       <div className=" sm:w-[30%] sm:h-full  rounded-[5]   ">
         <div className="grid grid-cols-1 w-full h-full gap-5  bg-gray-100 rounded-[10] p-5">

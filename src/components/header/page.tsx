@@ -36,7 +36,7 @@ const Header = () => {
     },
     {
       name: "RENT NOW",
-      url: "/carRent",
+      url: "/products",
     },
 
     {

@@ -43,11 +43,11 @@ const ContactPage = () => {
             </p>
           </div>
           <div className="flex flex-col justify-center gap-2 w-fit md:px-20 text-black">
-            <div className="flex gap-3 mt-5 ">
+            <div className="flex w-full gap-3 mt-5 ">
               <input
                 type="text"
                 placeholder="Name"
-                className="bg-[#fff]  p-2 border-0 outline-0"
+                className="bg-[#fff] w-[50%]  p-2 border-0 outline-0"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
@@ -55,7 +55,7 @@ const ContactPage = () => {
               <input
                 type="email"
                 placeholder="example@gmail.com"
-                className="bg-[#fff] p-2 border-0 outline-0"
+                className="bg-[#fff] w-[50%] p-2 border-0 outline-0"
                 name="mail"
                 value={form.mail}
                 onChange={handleChange}
@@ -63,7 +63,7 @@ const ContactPage = () => {
             </div>
             <div className="w-full ">
               <textarea
-                className="bg-[#fff]  w-full h-50 border-0 outline-0 p-2"
+                className="bg-[#fff]  w-full h-50 border-0 outline-0 "
                 name="message"
                 value={form.message}
                 onChange={handleChange}

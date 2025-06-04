@@ -1,6 +1,6 @@
-import { Car } from "@/components/types/products";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 const BASE_SRAPI_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://car-rent-backend-anii.onrender.com"
 
@@ -24,8 +24,8 @@ export const getProductDetails = async (slug: string) => {
 
 
 
-export const carFetch = async (): Promise<Car[]> => {
-  const response = await fetch(`${BASE_URL}/api/cars`);
-  const data = await response.json();
-  return data.data;
-};
+// export const carFetch = async (): Promise<Car[]> => {
+//   const response = await fetch(`${BASE_URL}/api/cars`);
+//   const data = await response.json();
+//   return data.data;
+// };

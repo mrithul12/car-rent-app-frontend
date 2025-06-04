@@ -1,12 +1,17 @@
+
+
 import { ProductList } from "@/components/productsComponent/ProductList";
 import Search from "@/components/search/search";
+import {  getProduct } from "@/lib/api";
 import { ProductsType } from "@/components/types/products";
-import { getProduct } from "@/lib/api";
-import React from "react";
+import ProductData from "@/components/productsComponent/carProduct";
 
-const Product = async () => {
-  const getItems: ProductsType[] = await getProduct();
-  
+export default async function ProductPage() {
+  const [getItems]: [ProductsType[]] = await Promise.all([
+    getProduct()
+    
+  ]);
+
   return (
     <div>
       <h1 className="sm:px-20 font-bold sm:text-[2em] text-[1.5em] px-3">
@@ -14,8 +19,8 @@ const Product = async () => {
       </h1>
       <Search getItems={getItems} />
       <ProductList getItems={getItems} />
+      <ProductData/>
+      
     </div>
   );
-};
-
-export default Product;
+}

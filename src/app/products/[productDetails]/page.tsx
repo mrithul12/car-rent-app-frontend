@@ -8,14 +8,14 @@ import React from 'react'
 
 interface pageParams{
     params:Promise<{
-        slug:string;
+        productDetails:string;
     }>
 }
 export default async function ProductDetails({params}:pageParams) {
-    const {slug} = await params;
+    const {productDetails} = await params;
  
     
-    const updateItems:ProductsType[] = await getProductDetails(slug)
+    const updateItems:ProductsType[] = await getProductDetails(productDetails)
     
   return (
    <div className='sm:px-20 p-5 sm:flex  gap-5 '>

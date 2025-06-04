@@ -20,6 +20,7 @@ export const fetchProducts = createAsyncThunk<ProductsType[]>(
       "https://car-rent-backend-anii.onrender.com/api/cars?populate=thumbnail&populate=images"
     );
     const data = await response.json();
+    console.log("checkoutttttttttt",data)
     return data.data;
   }
 );
