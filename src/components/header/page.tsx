@@ -85,14 +85,14 @@ const Header = () => {
                 return (
                   <li
                     key={index}
-                    className="font-bold text-white  text-[13px] z-50 "
+                    className="font-bold text-white   text-[13px] z-50 "
                   >
                     <Link
                       href={item.url}
                       className={`${
                         pathName === item.url
-                          ? "font-bold text-amber-500 relative flex"
-                          : "relative flex"
+                          ? "font-bold text-amber-500 relative flex "
+                          : "relative flex "
                       }`}
                       onClick={() => {
                         setToggle(false);
@@ -101,7 +101,7 @@ const Header = () => {
                       {" "}
                       <p> {item.name}</p>{" "}
                       {item.name === "CART" && cartCountLength > 0 && (
-                        <span className="bg-amber-500 rounded-[50%] text-amber-500 text-[5px] absolute right-[50px] h-[8px]   w-[8px]">
+                        <span className="bg-amber-500 rounded-[50%] text-amber-500 text-[5px] absolute right-[30px] h-[8px]   w-[8px]">
                           {cartCountLength}
                         </span>
                       )}
@@ -135,7 +135,7 @@ const Header = () => {
                   href={item.url}
                   className={`${
                     pathName === item.url
-                      ? "font-bold text-amber-500 relative underline flex justify-between"
+                      ? "font-bold text-amber-500 relative underline   flex justify-between"
                       : "relative hover:underline hover:text-amber-500  flex justify-between"
                   }`}
                 >

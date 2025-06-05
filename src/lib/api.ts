@@ -9,7 +9,7 @@ export const getProduct = async () => {
     `${BASE_SRAPI_URL}/api/cars?populate=thumbnail`
   );
   const data = await response.json();
-  // console.log("api checking tuestday --- ", data);
+
   return data.data;
 };
 
@@ -22,10 +22,3 @@ export const getProductDetails = async (slug: string) => {
 };
 
 
-
-
-// export const carFetch = async (): Promise<Car[]> => {
-//   const response = await fetch(`${BASE_URL}/api/cars`);
-//   const data = await response.json();
-//   return data.data;
-// };

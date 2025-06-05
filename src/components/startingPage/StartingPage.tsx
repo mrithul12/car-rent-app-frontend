@@ -3,15 +3,19 @@ import React from 'react'
 import { useState } from 'react';
 import { Switch } from '@headlessui/react';
 import { Home, Phone, MapPin, Car, Plane } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 
 const StartingPage = () => {
 
+  const route = useRouter()
+
      const [sameLocation, setSameLocation] = useState(true);
   return (
+    <>
     <div
      style={{ backgroundImage: "url('/bg-images.jpg')" }}
-      className="min-h-screen bg-cover bg-center    flex items-center justify-end p-2 sm:px-20">
+      className="min-h-screen bg-cover bg-center    flex items-center justify-end px-2 sm:px-20">
 
         <div className="bg-white rounded-2xl shadow-lg  w-[500px] h-fit p-5 ">
       <div className="bg-yellow-400 text-black font-bold text-lg p-2  rounded-t-md mb-4">
@@ -86,8 +90,14 @@ const StartingPage = () => {
         Submit
       </button>
     </div>
+
         
     </div>
+    <div className='block p-2 sm:hidden' >
+           <button className='w-full p-2 bg-blue-700 rounded-[10] text-white cursor-pointer' onClick={()=>route.push('/products')}>Choose for Vehicle</button>
+    </div>
+
+    </>
   )
 }
 
