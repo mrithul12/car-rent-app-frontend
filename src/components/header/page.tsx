@@ -54,10 +54,10 @@ const Header = () => {
   ];
 
   return (
-    <div className="grid lg:grid-cols-2 p-2 gap-1 items-center  bg-gradient-to-l bg-[#fff] text-nowrap header sticky top-0 z-10 ">
+    <div className="grid lg:grid-cols-2 p-2 gap-1 items-center  bg-black text-nowrap header sticky top-0 z-10 ">
       <div className="flex lg:justify-start sm:justify-between justify-between md:justify-between  items-center gap-4 relative  ">
         <div>
-          <h1 className=" font-[800] text-[20px] text-nowrap">CAR✓RENT</h1>
+          <h1 className=" font-[800] text-[20px] text-[#fff] text-nowrap">CAR✓RENT</h1>
         </div>
         <div className="flex justify-end  gap-2 ">
           <div className="flex items-start border-1 p-2 rounded-2xl w-full bg-[#fff]">
@@ -65,7 +65,7 @@ const Header = () => {
 
             <VanishInput />
           </div>
-          <div className="lg:hidden items-center flex ">
+          <div className="lg:hidden items-center flex text-white">
             <AlignJustify
               onClick={() => {
                 setToggle(true);
@@ -79,13 +79,13 @@ const Header = () => {
           </div>
         </div>
         {togle && (
-          <div className="bg-[#fff] h-screen w-[65%] absolute right-[-10] top-[-10] text-blck p-5 flex justify-between">
+          <div className="bg-black text-white h-screen w-[65%] absolute right-[-10] top-[-10] text-blck p-5 flex justify-between">
             <ul className=" flex flex-col gap-5">
               {headerList.map((item, index) => {
                 return (
                   <li
                     key={index}
-                    className="font-bold text-black  text-[13px] z-50 "
+                    className="font-bold text-white  text-[13px] z-50 "
                   >
                     <Link
                       href={item.url}
@@ -140,7 +140,7 @@ const Header = () => {
                   }`}
                 >
                   {" "}
-                  <p>{item.name}</p>{" "}
+                  <p className="text-white">{item.name}</p>{" "}
                   {item.name === "CART" && cartCountLength > 0 && (
                     <span className="bg-amber-500 rounded-[50%] text-amber-500 text-[5px] absolute right-[-10] h-[8px]   w-[8px]">
                       {cartCountLength}
@@ -153,7 +153,7 @@ const Header = () => {
 
           <button
             onClick={() => dispatch(setActive())}
-            className="font-bold border-1 px-2 hover:bg-amber-500 hover:text-[#fff] rounded-[10]   text-[13px] cursor-pointer py-1"
+            className="font-bold border-1 px-2 hover:bg-amber-500 hover:text-[#fff] rounded-[10] text-white   text-[13px] cursor-pointer py-1"
           >
             LOGIN
           </button>

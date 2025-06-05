@@ -2,7 +2,7 @@
 
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
-const BASE_SRAPI_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://car-rent-backend-anii.onrender.com"
+const BASE_SRAPI_URL = process.env.NEXT_PUBLIC_API_BASE_URL 
 
 export const getProduct = async () => {
   const response = await fetch(
